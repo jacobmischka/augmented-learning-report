@@ -1,0 +1,7 @@
+assets/
+*.pdf
+*.log
+*.out
+*.bbl
+*.aux
+*.blg

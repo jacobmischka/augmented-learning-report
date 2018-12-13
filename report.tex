@@ -1,0 +1,357 @@
+\documentclass[10pt,journal]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{array}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=blue]{hyperref}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc
+			i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Intelligent User Interfaces Final Project Report: Augmented LeARning}
+
+\author{\IEEEauthorblockN{Jacob Mischka}}
+
+\maketitle
+
+\section{Introduction}
+
+With the recent advent of augmented reality, there are ample opportunities to
+enhance daily activities with high-quality three-dimensional models. One
+particular realm in which this new medium shows promise is education; augmented
+reality learning experiences have the potential to increase engagement and
+improve learner outcomes. In this study, we will utilize augmented reality 3D
+models to enhance slideshow presentations with interactive visual aids for
+audience members of a lecture presentation.
+
+\citet*{dunleavy2009} showed that applying augmented reality solutions to learning
+environments can provide interactive and engaging experiences, particularly for
+students who have presented difficulties paying attention and performing well
+historically.
+
+\citet*{akcayir2017}, in a systematic review, highlight that while AR solutions impose
+challenges related to usability and technology, it can promote enhanced
+learning motivation and achievement, enhance enjoyment for learners, and enable
+visualization of concepts that are typically invisible or abstract when
+illustrated via other media.
+
+In another survey of studies, \citet*{santos2014} describe 3 primary inherent
+advantages of augmented reality learning experiences: annotation of real-world
+objects, visualization of context-aware principles, and techniques for
+evaluation. The second of these highlights the potential for augmented
+presentations.
+
+One particular educational experience area that can benefit from an additional,
+interactive, visual aid is via slideshow presentations.  With limited slide
+real estate, an augmented reality model provides an opportunity to illustrate
+the topic at hand while both not taking any additional slide space and not
+significantly obscuring the presenter or the presentation. Additionally, the
+model provides the presenter with a unique opportunity to provide an additional
+dimension of perspective to audience members, something not offered by
+traditional unaugmented 2-dimensional slide decks.
+
+As well as providing presenters a new, higher fidelity medium for visual aids,
+augmentation provides viewers with a unique opportunity to interact directly
+with the presentations. In contrast to a traditional, largely passive role of
+an audience members, users can freely manipulate the models displayed within
+the application. Viewers can zoom and rotate to focus on sections of the model
+of particular interest to them, transforming a uniform experience to one
+adaptable to the viewer's own preference and interest. Additionally, the mere
+act of being able to interact at all has the opportunity to increase attention
+and prevent viewers from becoming bored or inattentive during a long lecture.
+
+
+\section{Architecture}
+
+The system consists of a mobile application for the Android platform, and a
+slideshow presentation containing accompanying \textit{input images}. While
+viewing the presentation, audience members can point their phone's camera at
+the slide and bring the input image into the viewport. When doing so, the
+application will recognize the image and display the interactive
+three-dimensional model associated with that particular image. The
+\textit{input image} can be anything distinguishable by the underlying ARCore
+augmented reality library, such as a rather unique image relevant to the model
+itself, or a QR code. The models can be of any source format supported by the
+underlying Sceneform augmented reality library, which are the following three
+3D model types as of this writing: OBJ (\texttt{.obj}), Filmbox FBX
+(\texttt{.fbx}), and GL Transmission Format (\texttt{.gltf}).
+
+Viewers can manipulate the model in 4 primary ways: (a) performing a
+pinch-to-zoom gesture on the screen to adjust its scale, (b) dragging two
+fingers vertically across the screen to adjust the model's pitch accordingly
+from the perspective of the viewer, (c) performing a rotating/twisting gesture
+with two fingers to adjust the model's roll from the viewer's perspective, and
+(d) dragging the model with one finger to translate the model about a plane in
+the physical world.
+
+\section{Evaluation}
+
+Two presentations were created, each containing 4 slides with brief factual
+information of two topics each. The first presentation contained information
+about buildings and bridges (the \textsc{BB} presentation), and the second
+contained information about fruits and fish (the \textsc{FF} presentation).
+
+Each presentation was designed to have one topic area in which the models did
+not provide a direct benefit aside from increasing attention to the
+presentation (fruits and buildings), and one topic area in which the models
+were intended to aid in viewers determining distinguishing characteristics of
+the models (fish and bridges). Given those primary critera, the topics
+themselves were selected primarily on the availability of freely obtainable and
+relatively high-quality models.
+
+Thirteen participants in total used the software (10 male, 3 female; median age
+of 24.5, standard deviation 3.32). Three of the questionnaires were submitted
+blank (potentially due to a confusing question that was used to determine the
+order of the questions that followed; this will be touched on later below),
+resulting in their results being discarded, for a final total of 10
+participants (8 male, 2 female; median age 26, standard deviation 3.79).
+
+Participants viewed each presentation, one with augmented with 3D models via
+use of the application, and one without augmentation. Order of the
+presentations, and which presentation they viewed with augmentation, was varied
+such that roughly half (4 of 10) of the participants viewed \textsc{BB} first
+and the other half (6 of 10) \textsc{FF} first, as well as roughly half (4 of
+10) viewing \textsc{BB} with augmentation and the other half (6 of 10) viewing
+\textsc{FF} with augmentation. Ordering of augmentation was alternated, with 6
+of 10 viewing their second presentation with augmentation, and 4 viewing their
+first presentation with augmentation.
+
+Presentations were given by myself. The slides were displayed on a 15-inch
+laptop display located 2--3 feet from the participants.
+
+Upon completion of the presentations, participants were asked to complete a
+questionnaire containing 3 questions per topic area per presentation, for a
+total of 12 questions on the subject matter contained in the slides. In
+addition, participants were asked 4 questions in regard to their thoughts of
+the software and the concept of viewing augmented presentations overall.
+
+\section{Results}
+
+% TODO
+
+\subsection{Quantitative}
+
+\begin{table*}[!h]
+	\caption{Questionnaire averages}%
+	\label{result_averages}
+	\centering
+	\begin{tabular}{ l | r r | r }
+		Topic & Unaugmented average & Augmented average & Augmentation delta \\ \hline
+		\hline
+		Buildings & 83.33\% & 66.67\% & -16.67 PP \\ \hline
+		Bridges & 88.89\% & 83.33\% & - 5.50 PP \\ \hline
+		\hline
+		Fruits & 50.00\% & 44.44\% & - 5.56 PP \\ \hline
+		Fish & 58.33\% & 88.89\% & +30.50 PP \\ \hline
+	\end{tabular}
+\end{table*}
+
+Based on the brief quiz completed by the participants, augmentation did not
+increase fact retention in three of the four categories. The augmentation in
+fact \textit{detracted} from learning for the buildings (-16.67 percentage
+points on average), bridges (-5.5 percentage points on average), and fruits
+{-5.56 percentage points} topics. Such a result is not terribly surprising for
+the buildings and fruits categories, as the models did not provide any direct
+correlation to the questions asked. Given the novelty of the software,
+compounded with the fact that these topics were the first viewed with
+augmentation, resulted in the augmentation being more of a distraction than a
+visual aid to increase attention. It is hypothesized that given a longer period
+of time for users to become familiar with the software and augmented
+reality-enhanced presentation, the negative effect caused by distraction will
+decrease.
+
+However, it did assist in participants' performance with regard to the fish
+questionnaire, with a benefit of 30.5 percentage points on average compared to
+the unaugmented group.  A likely reason why the same benefit did not arise for
+the bridges category as intended is that in general people are more familiar
+with common types of bridges than they are with tropical fish, and as such the
+bridge models did not provide a signifiant benefit.
+
+Table~\ref{result_averages} shows the average performance for each group for
+each topic.
+
+\subsection{Qualitative}
+
+All participants reported enjoying the experience, though with one particpant
+noting experiencing occasional difficulties manipulating the models.
+
+\includegraphics[width=0.5\textwidth]{assets/enjoy}
+
+When asked if they felt the software aided their learning of the material, only
+two participants reported feeling that it did, although with caveats. One
+reported it being useful for the fish topic area but distracting for the fruit
+slides, while the other reported increased engagement, though mentioned being
+distracted when issues arose with gesture recognition. Eight participants
+(80\%) reported that it negatively impacted their ability to learn by being
+distracting at least some of the time. The remaining participants reported
+feeling that the augmentation did not impact their ability to learn the
+material.
+
+\includegraphics[width=0.5\textwidth]{assets/help-hurt}
+
+Somewhat interestingly, despite a near-complete consensus that the system had a
+negative effect on participants' ability to learn the material, 70\% reported
+that they would opt to do so again given the opportunity to choose.
+
+\includegraphics[width=0.5\textwidth]{assets/do-again}
+
+When provided the opportunity to provide comments about the experience, one
+participant remarked that they felt they would have performed better by taking
+notes, which may be difficult to do when preoccupied with interacting with the
+model. One participant also suggested enhancing the augmentation with
+additional information, such as floating cards highlighting points of interest
+or displaying the scale of a given model.
+
+\section{Conclusion}
+
+There are a few primary conclusions that can be drawn from the results of the
+study. Firstly, viewers enjoyed the experience, which is crtitical to the
+success of any software system. While it did not show an effect in outcomes in
+the short presentations used in the study, the increased engagement to the
+presentation may result in improved attention and information retention for
+longer, uninteractive lectures. Further research must be done to determine
+whether this is the case.
+
+Secondly, aside from the potential outcome improvements made by increased
+engagement mentioned above, it is clear that the presence of an augmented
+reality visual aid on its own does not directly improve learning of
+information. It is possible that the small negative effect shown, likely due to
+such augmention being more of a distraction than a visual aid, may decrease as
+familiarity with the system increases; this potential is touched on in further
+detail in following sections.
+
+Finally, the improved performance for the augmented group in the fish category
+shows that 3D model augmentation, when used intentionally and with a purpose in
+mind, can improve learner outcomes. By using the models to illustrate details
+not immediately obvious in static images or uninteractive videos, audience
+members are able to put those additional details to use even after a short time
+interacting with the model.
+
+Despite less than ideal results in three out of four categories utilized in the
+study, the concept of presentations augmented with augmented reality 3D models
+shows great potential. The rather significant performance benefit shown in the
+most complex topic area, coupled with viewer enthusiasm and desire to
+participate in augmented presentations, shows that future study must be done in
+this area.
+
+That being said, there are ripe opportunities for future improvement for the
+project.
+
+\subsection{Presentation content}
+
+The facutal information relayed for each topic was intended to be not too
+difficult so that audience members can retain some of it after only a minute or
+so of being exposed to it, but also not too simple so that the augmentation has
+an opportunity to play a role in enhancing learning.
+
+\subsection{Presentation length}
+
+Given the newness and novelty of interactive augmented reality, a brief 5
+minute presentation is not enough time for an audience to become accustomed to
+the application or augmented reality as a whole. Given a typical full-length
+presentation, such as a 45 or 75-minute lecture, audience members will be able
+to become comfortable with the interactivity model and may utilize the
+additional aid for learning of the information, instead of merely playing with
+the technology. The effectiveness of the interactive aid for learning instead
+of being a distraction is expected to increase as the novelty factor decreases.
+At least, users should have been given a few minutes with slides unrelated
+to the questionnaire in order to become familiar with the software while they
+were not being expected to pay attention to the subject matter.
+
+Additionally, because of the short duration of the presentations, each slide,
+and thus each augmented image, was only displayed for 1--2 minutes. Because of
+this, audience members were only able to get a brief glimpse of the model and
+were not able to investigate the minutae of a particular object. While this may
+not have mattered for some of the more simplistic models used, such as common
+fruits, it's difficult to usefully inspect a complex building or note the
+distinguishing traits of a given fish in such a short time.
+
+\subsection{Presentation execution}
+
+Presentations were given by myself. I am not a particularly skilled presenter,
+and I have no experience or training as an educator. Furthermore, I am
+certainly not an expert in any of the domains contained within the
+presentations (botany, architecture, and aquatic life). As such, presentations
+unfortunately devolved to essentially a recitation of the content present on
+the slides themselves. While I did include some additional facts and anecdotes
+not present on the slides, such content was kept to a minimum for the sake of
+study time.
+
+Given a skilled presenter with a greater command over the subject matter, the
+audience may be more focused on the content of the presentation and the
+information relayed via the interactive 3D models, instead of merely
+interacting with the models for enjoyment out of boredom.
+
+\subsection{Equipment}
+
+Due to equipment contstraints, presentations were given via a small laptop
+display, requiring viewers to be seated near to the slide deck. It remains to
+be shown whether a larger display situated farther away from the audience, as
+is typical for presentations, will affect the usability of the application, or
+its usefulness. In particular, as translation of a model currently requires a
+plane in the world upon which to traverse, the free-standing laptop screen
+caused issues that would not have arisen given a traditional larger projection
+screen against a flat wall.
+
+\subsection{3D model quality}
+
+Websites such as \href{https://www.turbosquid.com/}{TurboSquid} and
+\href{https://free3d.com/}{Free3D} provide a massive library of 3D assets.
+However, due to the sheer number of submissions and their varying qualities and
+price points, finding a collection of high-quality, free, textured assets for a
+given topic area proved a challenge. Given a larger budget, or the ability to
+procure models from sources specializing in a given field, higher quality
+models and textures may provide audience members with more opportunities to
+gain insight from them.
+
+\subsection{Questionnaire}
+
+The quality of the questions asked about the topics could be improved. Some
+questions proved too easy, with 5 of the 12 questions obtaining 90--100\%
+correct response rates across both groups. Additionally, the level of
+difficulty should be normalized across the topics, as one participant noted
+that the fish questions were more challenging than the questions about both
+buildings and bridges.
+
+\subsection{Application user experience}
+
+A few common pitfalls arose in user testing of the application. Several
+participants noted in the questionnaire, and several more out loud during
+testing, that the controls for manipulating the models were finnicky. In
+particular, the software tended to recognize an intended twist gesture as a
+pinch gesture, and scaled the model instead of rotating it as intended. This is
+partially an issue with the underlying libraries, as detection for both pinch
+and twist is provided, but it may be possible to adjust sensitivities such that
+twist gestures are easier to successfully produce.
+
+Additionally, a third gesture for adjusting the model's yaw should be provided
+as well, as it is the only remaining axis and is arguably a more useful one to
+manipulate than pitch.
+
+As noted above, it was suggested that the augmentation be enhanced to provide
+factual information in addition to only the models themselves. This was
+considered for the initial implementation, but ultimately scrapped for the sake
+of reducing complexity for the first iteration. Future versions should consider
+such additional augmentations.
+
+Finally, in its current iteration the application (and its underlying
+libraries) requires that all 3D models and their corresponding input images be
+predefined prior to application publication and installation. This reduces the
+effectiveness of such a platform, adding friction by requiring presenters to
+predefine a large number of assets, or by requiring audience members to install
+a new application for every presentation. Workarounds to allow incremental
+additions of model source assets should be investigated.
+
+\bibliography{report}
+\bibliographystyle{plainnat}
+
+\end{document}
